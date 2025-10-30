@@ -201,6 +201,9 @@ services:
     image: frappe/erpnext:v15.84.0
     networks:
       - frappe_network
+    depends_on:
+      - redis-cache
+      - redis-queue
     deploy:
       restart_policy:
         condition: on-failure
